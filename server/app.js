@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
-//import hotelRoutes from "./routes/hotelRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -11,10 +11,10 @@ connectDB();
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({ origin: true, credentials: true })); // allow any origin (for dev)
 app.use(express.json());
 
 // Routes
-//app.use("/api/hotels", hotelRoutes);
+app.use("/api/auth", authRoutes);
 
 export default app;
