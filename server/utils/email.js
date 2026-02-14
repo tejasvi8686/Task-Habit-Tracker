@@ -11,6 +11,11 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendResetPasswordEmail = async (to, resetUrl) => {
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    throw new Error(
+      "SMTP credentials missing. Set SMTP_USER and SMTP_PASS in .env (your Gmail and App Password)."
+    );
+  }
   const mailOptions = {
     from: process.env.SMTP_FROM || process.env.SMTP_USER,
     to,

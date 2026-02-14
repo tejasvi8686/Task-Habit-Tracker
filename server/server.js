@@ -1,3 +1,4 @@
+import "dotenv/config"; // load .env before any other app code
 import app from "./app.js";
 
 const PORT = process.env.PORT || 5001; // avoid 5000 (often used by macOS AirPlay)
