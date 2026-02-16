@@ -6,7 +6,7 @@ const CRON_SCHEDULE = "0 */4 * * *"; // Every 4 hours at minute 0
 
 function parseList(envValue) {
   if (!envValue || typeof envValue !== "string") return [];
-  return envValue
+  return envValue 
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
